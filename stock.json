@@ -1,0 +1,45 @@
+{
+    "productos":[{
+        "id": 1,
+        "imagen": "./Fotosproductos/Producto 1.png",
+        "nombre": "Café molido",
+        "descripcion": "Café en granos molido 1kg",
+        "precio": 1500
+        },
+        {
+        "id": 2,
+        "imagen": "./Fotosproductos/Producto 2.png",
+        "nombre": "Café tostado",
+        "descripcion": "Café en granos tostado 1kg",
+        "precio": 1500
+        },
+        {
+        "id": 3,
+        "imagen": "./Fotosproductos/Producto 3.png",
+        "nombre": "Café torrado",
+        "descripcion": "Café en granos torrado 1kg",
+        "precio": 1500
+        },
+        { 
+        "id": 4,
+        "imagen": "./Fotosproductos/Producto 4.png",
+        "nombre": "Pack Café molido",
+        "descripcion": "Pack Café molido",
+        "precio": 1500
+        },
+        {
+        "id": 5,
+        "imagen": "./Fotosproductos/Producto 5.png",
+        "nombre": "Sapu Edición Limitada",
+        "descripcion": "Sapu Edición Limitada",
+        "precio": 1500
+        },
+        {
+        "id": 6,
+        "imagen": "./Fotosproductos/Producto 6.png",
+        "nombre": "Pack Café Promo",
+        "descripcion": "Pack Café Promo",
+        "precio": 1500
+        }
+        ]       
+}

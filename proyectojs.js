@@ -1,59 +1,59 @@
 
 //ARRAYS PRODUCTOS Y SHOP.
 const carrito = [];
-const productos = [{
-    id: 1,
-    imagen: "./Fotosproductos/Producto 1.png",
-    nombre: "Café molido",
-    descripcion: "Café en granos molido 1kg",
-    precio: 1500
-},
-{
-    id: 2,
-    imagen: "./Fotosproductos/Producto 2.png",
-    nombre: "Café tostado",
-    descripcion: "Café en granos tostado 1kg",
-    precio: 1500
-},
-{
-    id: 3,
-    imagen: "./Fotosproductos/Producto 3.png",
-    nombre: "Café torrado",
-    descripcion: "Café en granos torrado 1kg",
-    precio: 1500
-},
-{
-    id: 4,
-    imagen: "./Fotosproductos/Producto 4.png",
-    nombre: "Pack Café molido",
-    descripcion: "Pack Café molido",
-    precio: 1500
-},
-{
-    id: 5,
-    imagen: "./Fotosproductos/Producto 5.png",
-    nombre: "Sapu Edición Limitada",
-    descripcion: "Sapu Edición Limitada",
-    precio: 1500
-},
-{
-    id: 6,
-    imagen: "./Fotosproductos/Producto 6.png",
-    nombre: "Pack Café Promo",
-    descripcion: "Pack Café Promo",
-    precio: 1500
-}];
+// const productos = [{
+//     id: 1,
+//     imagen: "./Fotosproductos/Producto 1.png",
+//     nombre: "Café molido",
+//     descripcion: "Café en granos molido 1kg",
+//     precio: 1500
+// },
+// {
+//     id: 2,
+//     imagen: "./Fotosproductos/Producto 2.png",
+//     nombre: "Café tostado",
+//     descripcion: "Café en granos tostado 1kg",
+//     precio: 1500
+// },
+// {
+//     id: 3,
+//     imagen: "./Fotosproductos/Producto 3.png",
+//     nombre: "Café torrado",
+//     descripcion: "Café en granos torrado 1kg",
+//     precio: 1500
+// },
+// { 
+//     id: 4,
+//     imagen: "./Fotosproductos/Producto 4.png",
+//     nombre: "Pack Café molido",
+//     descripcion: "Pack Café molido",
+//     precio: 1500
+// },
+// {
+//     id: 5,
+//     imagen: "./Fotosproductos/Producto 5.png",
+//     nombre: "Sapu Edición Limitada",
+//     descripcion: "Sapu Edición Limitada",
+//     precio: 1500
+// },
+// {
+//     id: 6,
+//     imagen: "./Fotosproductos/Producto 6.png",
+//     nombre: "Pack Café Promo",
+//     descripcion: "Pack Café Promo",
+//     precio: 1500
+// }]
 
 
 //VARIABLES.
-let modalContainer = document.getElementById("modalContainter");
+// let modalContainer = document.getElementById("modalContainter");
 let containerProductos = document.getElementById("containerProductos");
-const dolarAmericano = Intl.NumberFormat("en-US");
+// const dolarAmericano = Intl.NumberFormat("en-US");
 //ACTIVO FUNCIONES.
-
 renderizar();
 agregarCarrito();
-cargarCarrito();
+// cargarCarrito();
+obtenerJsonLocal();
 //FUNCIONES.
 
 // function sumaIva (precio, iva){
@@ -62,6 +62,16 @@ cargarCarrito();
 //     let precioConIva = precio * iva;
 //     return precioConIva;
 // }
+
+function obtenerJsonLocal(){
+    const URLJSON = "stock.json";
+    fetch (URLJSON)
+        .then( (res) => res.json())
+        .then( (data) => {
+            console.table(data.productos)
+        })
+}
+
 
 
 function renderizar() {
@@ -84,7 +94,7 @@ function renderizar() {
 function agregarCarrito(producto){
     carrito.push(producto);
     console.table(carrito);
-    alert("Producto: " + `${producto.nombre}` + " agregado al carrito");
+    alert("Producto: " + producto.nombre + " agregado al carrito!");
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
@@ -93,22 +103,22 @@ if (localStorage.getItem ("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));
 }
 
-function cargarCarrito(){
-    modalContainer.innerHTML= "";
-    carrito.forEach(
-        (elemento) => {
-            let renglonCarrito = document.createElement("tr");
+// function cargarCarrito(){
+//     modalContainer.innerHTML= "";
+//     carrito.forEach(
+//         (elemento) => {
+//             let renglonCarrito = document.createElement("tr");
 
-            renglonCarrito.innerHTML = `
-            <td>${elemento.producto.id}</td>
-            <td>${elemento.producto.nombre}</td>
-            <td></td>
-            <td>${elemento.producto.descripcion}</td>
-            <td>${elemento.producto.precio}</td>
-            `;
-        }
-    )
-}
+//             renglonCarrito.innerHTML = `
+//             <td>${elemento.producto.id}</td>
+//             <td>${elemento.producto.nombre}</td>
+//             <td></td>
+//             <td>${elemento.producto.descripcion}</td>
+//             <td>${elemento.producto.precio}</td>
+//             `;
+//         }
+//     )
+// }
 
 // let tipoBuscado = prompt ("Ingrese el tipo de café que desea buscar\nNuestros estilos de cafe son:\n- Torrado.\n- Molido.\n- Tostado.");
 // for (const Cafe of productos){
